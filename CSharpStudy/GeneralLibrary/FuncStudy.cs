@@ -23,13 +23,13 @@ namespace GeneralLibrary
         }
 
         // Calculate the sum between two values;
-        private static double Calculate(double a, double b)
+        public static double Calculate(double a, double b)
         {
             return a + b;
         }
 
         // Get a random int value;
-        private static int GetRandomMethod()
+        public static int GetRandomMethod()
         {
             Random random = new Random();
             return random.Next();

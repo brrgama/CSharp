@@ -42,6 +42,7 @@ namespace GeneralConsoleApp
             */
 
             // Test Delegate.
+            /*
             ProcessClass processClass = new ProcessClass();
             processClass.Process();
 
@@ -50,8 +51,11 @@ namespace GeneralConsoleApp
 
             // Invocation.
             simpleDelegate();
-            
+            */
+                                   
+
             Console.ReadKey();
+
             
 
 

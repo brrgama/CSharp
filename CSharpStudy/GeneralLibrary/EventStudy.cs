@@ -8,6 +8,7 @@ namespace GeneralLibrary
 {
     public class EventStudy
     {
+        /*
         //This delegate can be used to point to methods
         //which return void and take a string.
         public delegate void MyEventHandler(string foo);
@@ -29,6 +30,43 @@ namespace GeneralLibrary
 
         //To raise the event within a method.
         SomethingHappened("bar");
+        */
 
+    }
+}
+
+
+namespace DelegateArticle
+{
+    public delegate string FirstDelegate(int x);
+    
+    public class DelegateTest
+    {
+        string name;
+
+        public delegate void SecondDelegate(char a, char b);
+
+        public static void Test()
+        {
+            FirstDelegate d1 = new FirstDelegate(DelegateTest.StaticMethod);
+
+            DelegateTest instance = new DelegateTest();
+            instance.name = "My instance";
+
+            FirstDelegate d2 = new FirstDelegate(instance.InstanceMethod);
+
+            Console.WriteLine(d1(10)); // Writes out "Static method: 10"
+            Console.WriteLine(d2(20)); // Writes out "My instance: 5"
+        }
+
+        static string StaticMethod(int i)
+        {
+            return string.Format("Static method: {0}", i);
+        }
+
+        string InstanceMethod(int i)
+        {
+            return string.Format("{0}: {1}", name, i);
+        }
     }
 }

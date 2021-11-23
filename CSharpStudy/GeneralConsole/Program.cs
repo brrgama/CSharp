@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GeneralLibrary.Fields_Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,8 @@ namespace GeneralConsole
     {
         static void Main(string[] args)
         {
-            DelegateArticle.DelegateTest.Test();
+            //DelegateArticle.DelegateTest.Test();
+            Test.PrintFields();
             Console.ReadLine();
         }
     }

@@ -39,6 +39,10 @@ namespace GeneralLibrary
 namespace DelegateArticle
 {
     public delegate string FirstDelegate(int x);
+
+    public delegate int SecondDelegate(string value);
+
+    public delegate TResult Func<in T1, in T2, out TResult>(T1 arg1, T2 arg2);
     
     public class DelegateTest
     {
@@ -67,6 +71,50 @@ namespace DelegateArticle
         string InstanceMethod(int i)
         {
             return string.Format("{0}: {1}", name, i);
+        }
+    }
+
+    public class Test
+    {
+        public int ToDelegate(string message)
+        {
+            Console.WriteLine(message);
+            return 0;
+        }
+
+        public bool Method(Func<string, int> myMethodName)
+        {
+            int i = myMethodName("My string");
+            return true;
+        }
+
+        public void Method2()
+        {
+            Method(ToDelegate);
+        }
+
+        public event EventHandler MyEvent
+        {
+            add
+            {
+                Console.WriteLine("add operation");
+            }
+            remove
+            {
+                Console.WriteLine("remove operation");
+            }
+        }
+
+        static void Main()
+        {
+            Test t = new Test();
+
+            //t.MyEvent += EventHandler (t.DoNothing);
+            t.MyEvent -= null;
+        }
+
+        void DoNothing(object sender, EventArgs e)
+        {
         }
     }
 }
